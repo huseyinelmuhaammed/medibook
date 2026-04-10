@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/appointment_model.dart';
+import '../providers/appointment_provider.dart';
 import '../utils/formatters.dart';
+import 'wizard_screen.dart';
 
 class SuccessScreen extends StatelessWidget {
   final AppointmentModel appointment;
@@ -92,8 +95,12 @@ class SuccessScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    Navigator.of(context).popUntil((route) => route.isFirst);
-                  },
+                context.read<AppointmentProvider>().resetAppointment();
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (_) => const WizardScreen()),
+                  (route) => false,
+                );
+              },
                   icon: const Icon(Icons.home),
                   label: const Text('Ana Sayfaya Dön'),
                   style: ElevatedButton.styleFrom(
