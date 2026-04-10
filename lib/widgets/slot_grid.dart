@@ -16,7 +16,6 @@ class SlotGrid extends StatelessWidget {
     final slots = <String>[];
     for (int hour = 9; hour <= 16; hour++) {
       for (int minute in [0, 30]) {
-        if (hour == 16 && minute == 30) continue;
         final h = hour.toString().padLeft(2, '0');
         final m = minute.toString().padLeft(2, '0');
         slots.add('$h:$m');
