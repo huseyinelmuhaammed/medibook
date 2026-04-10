@@ -46,13 +46,7 @@ class Step5ServicesState extends State<Step5Services> {
     provider.updateField('ekHizmetler', current);
   }
 
-  static const Map<String, String> _chipKeys = {
-    'Kan Tahlili': 'chip_kan_tahlili',
-    'MR': 'chip_mr',
-    'Röntgen': 'chip_rontgen',
-    'EKG': 'chip_ekg',
-    'Ultrason': 'chip_ultrason',
-  };
+  static const Map<String, String> _chipKeys = AppConstants.ekHizmetlerKeys;
 
   @override
   Widget build(BuildContext context) {
