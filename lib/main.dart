@@ -7,7 +7,11 @@ import 'providers/appointment_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferences.getInstance();
-  await initApp();
+  try {
+    await initApp();
+  } catch (_) {
+    // Locale initialization failure is non-fatal; app continues with defaults
+  }
   runApp(
     ChangeNotifierProvider(
       create: (_) => AppointmentProvider(),

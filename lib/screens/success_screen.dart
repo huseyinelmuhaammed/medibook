@@ -94,18 +94,18 @@ class SuccessScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
-                  onPressed: () {
-                context.read<AppointmentProvider>().resetAppointment();
-                Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (_) => const WizardScreen()),
-                  (route) => false,
-                );
-              },
                   icon: const Icon(Icons.home),
                   label: const Text('Ana Sayfaya Dön'),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 14),
                   ),
+                  onPressed: () {
+                    context.read<AppointmentProvider>().resetAppointment();
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (_) => const WizardScreen()),
+                      (route) => false,
+                    );
+                  },
                 ),
               ),
             ],

@@ -61,7 +61,7 @@ class Step1PersonalState extends State<Step1Personal> {
       context: context,
       initialDate: DateTime(now.year - 25),
       firstDate: DateTime(1920),
-      lastDate: DateTime(now.year - 1),
+      lastDate: DateTime.now(),
       locale: const Locale('tr'),
     );
     if (picked != null && mounted) {
